@@ -15,11 +15,10 @@ body {
   overflow-x:hidden;
 }
 
-/* Header et slogan */
 header {
   padding:60px 20px 30px;
   text-align:center;
-  background:black; /* fond noir simple */
+  background:black;
 }
 
 header h1 {
@@ -33,8 +32,8 @@ header h1 {
   font-weight:900;
   text-transform:uppercase;
   margin-top:15px;
-  color:#ff3333; /* texte visible */
-  text-shadow: 0 0 15px #ff9900; /* léger glow pour impact */
+  color:#ff3333;
+  text-shadow: 0 0 15px #ff9900;
   animation: pulse 2s infinite;
 }
 
@@ -44,7 +43,6 @@ header h1 {
   100% { transform: scale(1); }
 }
 
-/* Bandeau confiance */
 .trust {
   display:flex;
   justify-content:center;
@@ -55,7 +53,6 @@ header h1 {
   color:#ff3333;
 }
 
-/* Sections */
 section {
   padding:50px 20px;
   text-align:center;
@@ -208,40 +205,40 @@ footer {
 <section id="form-section">
   <h2>Formulaire de vente</h2>
   <p class="subtitle">
-    Remplissez le formulaire, nous analysons votre véhicule et vous recevez une estimation personnalisée par email.
+    Remplissez le formulaire pour recevoir votre estimation personnalisée.
   </p>
   <p class="micro-engagement">
     En 60 secondes, obtenez une estimation précise de votre voiture.
   </p>
 
-  <form id="carForm" action="https://formspree.io/f/mnqwyjdp" method="POST">
+  <form id="carForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
     <label>Nom complet</label>
-    <input type="text" name="name" required>
+    <input type="text" name="name" placeholder="Votre nom complet" required>
 
     <label>Email</label>
-    <input type="email" name="_replyto" required>
+    <input type="email" name="_replyto" placeholder="Votre email" required>
 
     <label>Téléphone</label>
-    <input type="text" name="phone" required>
+    <input type="text" name="phone" placeholder="Votre numéro" required>
 
-    <label>Marque et modèle</label>
-    <input type="text" name="car_model" required>
+    <label>Marque et Modèle</label>
+    <input type="text" name="car_model" placeholder="Ex: Peugeot 208" required>
 
     <label>Année</label>
-    <input type="number" name="year" required>
+    <input type="number" name="year" placeholder="Ex: 2020" required>
 
     <label>Kilométrage</label>
-    <input type="number" name="km" required>
+    <input type="number" name="km" placeholder="Ex: 15000" required>
 
     <label>État du véhicule</label>
-    <select name="etat">
-      <option>Excellent</option>
-      <option>Bon</option>
-      <option>Moyen</option>
+    <select name="etat" required>
+      <option value="excellent">Excellent</option>
+      <option value="bon">Bon</option>
+      <option value="moyen">Moyen</option>
     </select>
 
-    <label>Commentaire</label>
-    <textarea name="message"></textarea>
+    <label>Commentaire supplémentaire</label>
+    <textarea name="message" rows="4" placeholder="Ex: options, entretien, réparations..."></textarea>
 
     <button type="submit">Recevoir mon estimation</button>
     <div class="small-text">Aucune obligation de vente</div>
@@ -254,15 +251,15 @@ footer {
   <h2>Pourquoi nous choisir ?</h2>
   <div class="item">
     <h3>Estimation rapide</h3>
-    <p>Nous recevrons vos informations et vous enverrons une estimation personnalisée.</p>
+    <p>Nous analysons vos informations et vous envoyons une estimation personnalisée.</p>
   </div>
   <div class="item">
     <h3>Prix juste</h3>
-    <p>Vous recevez une estimation réaliste et adaptée à votre voiture.</p>
+    <p>Recevez un prix réaliste selon l’âge, le kilométrage et l’état de votre véhicule.</p>
   </div>
   <div class="item">
     <h3>Transaction sécurisée</h3>
-    <p>Nous vous contactons pour conclure la vente de manière sûre et rapide.</p>
+    <p>Nous organisons la vente de manière sûre et rapide.</p>
   </div>
 </section>
 
@@ -278,14 +275,6 @@ footer {
   <div class="item"><strong>Est-ce gratuit ?</strong><br>Oui, totalement.</div>
   <div class="item"><strong>Suis-je obligé de vendre ?</strong><br>Non, aucune obligation.</div>
   <div class="item"><strong>Quand vais-je recevoir l’estimation ?</strong><br>Sous 24h maximum.</div>
-</section>
-
-<section class="box">
-  <h2>Témoignage</h2>
-  <div class="item">
-    <strong>Alex</strong>
-    <p class="testimonial">"J’ai reçu mon estimation en moins de 24h, super simple et rapide !"</p>
-  </div>
 </section>
 
 <footer>
