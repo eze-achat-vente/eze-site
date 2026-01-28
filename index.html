@@ -11,9 +11,7 @@
       margin:0;
       font-family: 'Roboto', sans-serif;
       color:white;
-      overflow-x:hidden;
-      position: relative;
-      background: black; /* fond noir simple */
+      background: black;
     }
 
     header {
@@ -33,6 +31,15 @@
       margin-top:10px;
       font-style:italic;
       color:#ff3333;
+    }
+
+    /* Section formulaire avec dégradé subtil */
+    #form-section {
+      padding:50px 20px;
+      text-align:center;
+      background: linear-gradient(to bottom, #111 0%, #000 100%);
+      border-top: 2px solid #ff0000;
+      border-bottom: 2px solid #ff0000;
     }
 
     section {
@@ -154,7 +161,8 @@
     <p>Vroum et vendez 🚗</p>
   </header>
 
-  <section>
+  <!-- Section formulaire avec fond dégradé -->
+  <section id="form-section">
     <h2>Formulaire de vente</h2>
     <form id="carForm" action="https://formspree.io/f/mnqwyjdp" method="POST">
       <label>Nom complet</label>
