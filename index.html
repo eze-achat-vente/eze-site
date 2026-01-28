@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eze Auto - Vroum et vendez</title>
+  <title>Eze Auto - VROUM ET VENDEZ</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
@@ -25,12 +25,22 @@
       font-weight:700;
     }
 
-    header p {
-      font-size:1.5em;
-      opacity:0.9;
-      margin-top:10px;
-      font-style:italic;
-      color:#ff3333;
+    #slogan {
+      font-size:3em;                 /* Très grand pour impact */
+      font-weight:900;               /* Très gras */
+      text-transform: uppercase;
+      margin-top:15px;
+      background: linear-gradient(90deg, #ff3333, #ff9900, #ffffff); /* Dégradé premium */
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; /* Applique le dégradé sur le texte */
+      text-shadow: 0 0 10px rgba(255,153,51,0.5), 0 0 20px rgba(255,51,51,0.4); /* Lueur subtile */
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
     }
 
     /* Section formulaire avec dégradé subtil */
@@ -149,7 +159,7 @@
 
     @media (max-width:600px){
       header h1 { font-size:2em; }
-      header p { font-size:1.2em; }
+      #slogan { font-size:2em; }
     }
 
   </style>
@@ -158,7 +168,7 @@
 
   <header>
     <h1>Eze Auto</h1>
-    <p>Vroum et vendez 🚗</p>
+    <p id="slogan">VROUM ET VENDEZ 🚗</p>
   </header>
 
   <!-- Section formulaire avec fond dégradé -->
