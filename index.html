@@ -32,8 +32,8 @@ header h1 {
   font-weight:900;
   text-transform:uppercase;
   margin-top:15px;
-  color:#ff3333;
-  text-shadow: 0 0 15px #ff9900;
+  color:#FFD700; /* Or */
+  text-shadow: 0 0 15px #FFD700;
   animation: pulse 2s infinite;
 }
 
@@ -50,7 +50,7 @@ header h1 {
   margin-top:30px;
   flex-wrap:wrap;
   font-weight:bold;
-  color:#ff3333;
+  color:#FFD700;
 }
 
 section {
@@ -60,13 +60,14 @@ section {
 
 #form-section {
   background: linear-gradient(to bottom, #111, #000);
-  border-top:2px solid red;
-  border-bottom:2px solid red;
+  border-top:2px solid #FFD700;
+  border-bottom:2px solid #FFD700;
 }
 
 h2 {
   font-size:2em;
   margin-bottom:15px;
+  color:#FFD700;
 }
 
 .subtitle {
@@ -90,6 +91,7 @@ label {
   margin-top:15px;
   display:block;
   font-weight:bold;
+  color:#FFD700;
 }
 
 input, select, textarea {
@@ -106,8 +108,8 @@ button {
   width:100%;
   margin-top:25px;
   padding:15px;
-  background:#b00000;
-  color:white;
+  background:#FFD700;
+  color:black;
   border:none;
   border-radius:8px;
   font-size:1.2em;
@@ -116,8 +118,8 @@ button {
 }
 
 button:hover {
-  background:#ff4444;
-  box-shadow:0 0 15px #ff4444;
+  background:#FFC300;
+  box-shadow:0 0 15px #FFD700;
 }
 
 .small-text {
@@ -143,23 +145,23 @@ button:hover {
 
 .item {
   background:#111;
-  border:2px solid red;
+  border:2px solid #FFD700;
   border-radius:12px;
   padding:20px;
   margin-bottom:20px;
-  box-shadow:0 0 15px rgba(255,0,0,0.3);
+  box-shadow:0 0 15px rgba(255,215,0,0.3);
   transition:0.3s;
 }
 
 .item:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(255,0,0,0.5);
+  box-shadow: 0 10px 25px rgba(255,215,0,0.5);
 }
 
 .item h3 {
   margin-top:0;
   margin-bottom:10px;
-  color:#ff0000;
+  color:#FFD700;
 }
 
 .testimonial {
@@ -173,14 +175,14 @@ button:hover {
   font-weight:bold;
   font-size:1.2em;
   margin-top:20px;
-  color:#ff3333;
+  color:#FFD700;
 }
 
 footer {
   padding:20px;
   text-align:center;
   opacity:0.6;
-  border-top:1px solid red;
+  border-top:1px solid #FFD700;
 }
 
 @media (max-width:600px){
@@ -208,91 +210,4 @@ footer {
     Remplissez le formulaire pour recevoir votre estimation personnalisée.
   </p>
   <p class="micro-engagement">
-    En 60 secondes, obtenez une estimation précise de votre voiture.
-  </p>
-
-  <form id="carForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-    <label>Nom complet</label>
-    <input type="text" name="name" placeholder="Votre nom complet" required>
-
-    <label>Email</label>
-    <input type="email" name="_replyto" placeholder="Votre email" required>
-
-    <label>Téléphone</label>
-    <input type="text" name="phone" placeholder="Votre numéro" required>
-
-    <label>Marque et Modèle</label>
-    <input type="text" name="car_model" placeholder="Ex: Peugeot 208" required>
-
-    <label>Année</label>
-    <input type="number" name="year" placeholder="Ex: 2020" required>
-
-    <label>Kilométrage</label>
-    <input type="number" name="km" placeholder="Ex: 15000" required>
-
-    <label>État du véhicule</label>
-    <select name="etat" required>
-      <option value="excellent">Excellent</option>
-      <option value="bon">Bon</option>
-      <option value="moyen">Moyen</option>
-    </select>
-
-    <label>Commentaire supplémentaire</label>
-    <textarea name="message" rows="4" placeholder="Ex: options, entretien, réparations..."></textarea>
-
-    <button type="submit">Recevoir mon estimation</button>
-    <div class="small-text">Aucune obligation de vente</div>
-  </form>
-
-  <div id="counter">🚗 Plus de 120 voitures estimées cette semaine !</div>
-</section>
-
-<section class="box">
-  <h2>Pourquoi nous choisir ?</h2>
-  <div class="item">
-    <h3>Estimation rapide</h3>
-    <p>Nous analysons vos informations et vous envoyons une estimation personnalisée.</p>
-  </div>
-  <div class="item">
-    <h3>Prix juste</h3>
-    <p>Recevez un prix réaliste selon l’âge, le kilométrage et l’état de votre véhicule.</p>
-  </div>
-  <div class="item">
-    <h3>Transaction sécurisée</h3>
-    <p>Nous organisons la vente de manière sûre et rapide.</p>
-  </div>
-</section>
-
-<section class="box">
-  <h2>Pour quels véhicules ?</h2>
-  <div class="item">🚗 Citadines et berlines</div>
-  <div class="item">🚙 SUV et familiales</div>
-  <div class="item">🛠 Véhicules anciens ou kilométrés</div>
-</section>
-
-<section class="box">
-  <h2>Questions fréquentes</h2>
-  <div class="item"><strong>Est-ce gratuit ?</strong><br>Oui, totalement.</div>
-  <div class="item"><strong>Suis-je obligé de vendre ?</strong><br>Non, aucune obligation.</div>
-  <div class="item"><strong>Quand vais-je recevoir l’estimation ?</strong><br>Sous 24h maximum.</div>
-</section>
-
-<footer>
-  © 2026 — Eze Auto 🔴⚫
-</footer>
-
-<script>
-// Animation au scroll
-const boxes = document.querySelectorAll('.box');
-window.addEventListener('scroll', () => {
-  boxes.forEach(box => {
-    const boxTop = box.getBoundingClientRect().top;
-    if(boxTop < window.innerHeight - 100) {
-      box.classList.add('visible');
-    }
-  });
-});
-</script>
-
-</body>
-</html>
+    En
