@@ -10,18 +10,28 @@
     body {
       margin:0;
       font-family: 'Roboto', sans-serif;
-      background: linear-gradient(135deg, #0b0b0b, #1a1a1a);
       overflow-x:hidden;
       color:white;
+      position: relative;
     }
 
-    /* Overlay sombre */
+    /* Slider d’images de fond */
+    #bg-slider {
+      position: fixed;
+      top:0; left:0;
+      width:100%; height:100%;
+      z-index: -3;
+      object-fit: cover;
+      transition: opacity 1s ease-in-out;
+    }
+
+    /* Overlay sombre pour lisibilité */
     body::before {
       content: "";
       position: fixed;
       top:0; left:0; right:0; bottom:0;
-      background: rgba(0,0,0,0.6);
-      z-index: -1;
+      background: rgba(0,0,0,0.5);
+      z-index: -2;
     }
 
     /* Particules animées */
@@ -29,7 +39,7 @@
       position: fixed;
       top:0; left:0;
       width:100%; height:100%;
-      z-index: -2;
+      z-index: -1;
       pointer-events: none;
     }
 
@@ -46,7 +56,7 @@
     }
 
     header img {
-      height:80px;
+      height:120px;
       max-width:80%;
       object-fit:contain;
     }
@@ -57,21 +67,44 @@
     section { padding:50px 20px; text-align:center; }
     h2 { font-size:2em; margin-bottom:20px; }
 
-    .card { background:#111; border:2px solid #b00000; border-radius:12px; padding:25px; max-width:500px; margin:20px auto; box-shadow:0 0 20px rgba(255,0,0,0.3); }
+    .card { background:#111; border:2px solid #ff0000; border-radius:12px; padding:25px; max-width:500px; margin:20px auto; box-shadow:0 0 25px rgba(255,0,0,0.6); }
 
     form label { display:block; text-align:left; margin-top:15px; font-weight:bold; font-size:1.1em; }
     form input, form select, form textarea { width:100%; padding:12px; margin-top:5px; border-radius:6px; border:none; background:#222; color:white; font-size:1em; }
     form textarea { resize:vertical; }
-    button { margin-top:20px; padding:15px 30px; background:#b00000; color:white; border:none; border-radius:8px; font-size:1.1em; cursor:pointer; transition:0.3s; }
-    button:hover { background:#ff0000; }
+    button {
+      margin-top:20px;
+      padding:15px 30px;
+      background: linear-gradient(135deg, #ff0000, #b00000);
+      color:white;
+      border:none;
+      border-radius:8px;
+      font-size:1.1em;
+      cursor:pointer;
+      transition:0.3s;
+    }
+    button:hover {
+      background: linear-gradient(135deg, #ff4d4d, #ff0000);
+    }
 
     .result { margin-top:25px; font-size:1.3em; font-weight:bold; opacity:0.9; }
 
-    footer { padding:25px; font-size:0.9em; text-align:center; opacity:0.6; border-top:1px solid #b00000; margin-top:50px; }
+    footer { padding:25px; font-size:0.9em; text-align:center; opacity:0.6; border-top:1px solid #ff0000; margin-top:50px; }
 
     .features, .steps, .testimonials { max-width:900px; margin:20px auto; text-align:left; }
-    .features .item, .steps .item, .testimonials .item { background:#111; border:2px solid #b00000; border-radius:12px; padding:20px; margin-bottom:20px; transition:0.3s; }
-    .features .item:hover, .steps .item:hover, .testimonials .item:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(255,0,0,0.5); }
+    .features .item, .steps .item, .testimonials .item {
+      background:#111;
+      border:2px solid #ff0000;
+      border-radius:12px;
+      padding:20px;
+      margin-bottom:20px;
+      box-shadow:0 0 25px rgba(255,0,0,0.6);
+      transition:0.3s;
+    }
+    .features .item:hover, .steps .item:hover, .testimonials .item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 35px rgba(255,0,0,0.8);
+    }
     .features .item h3, .steps .item h3, .testimonials .item h3 { margin-top:0; margin-bottom:10px; color:#ff0000; }
 
     @media (max-width:600px) {
@@ -81,6 +114,9 @@
   </style>
 </head>
 <body>
+
+  <!-- Slider d’images de voitures -->
+  <img id="bg-slider" src="voiture1.jpg" alt="Fond voitures">
 
   <!-- Particules animées -->
   <canvas id="particles"></canvas>
@@ -183,43 +219,40 @@
       document.getElementById('result').innerText = "Merci ! Nous allons vous envoyer votre estimation rapidement.";
     }
 
-    // Particules animées simples
+    // Particules animées
     const canvas = document.getElementById('particles');
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-
     let particles = [];
-    for(let i=0; i<100; i++){
-      particles.push({
-        x: Math.random()*canvas.width,
-        y: Math.random()*canvas.height,
-        r: Math.random()*2+1,
-        dx: (Math.random()-0.5)*0.5,
-        dy: (Math.random()-0.5)*0.5
-      });
+    for(let i=0;i<120;i++){
+      particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*3+1,dx:(Math.random()-0.5)*0.7,dy:(Math.random()-0.5)*0.7});
     }
-
     function animate(){
       ctx.clearRect(0,0,canvas.width,canvas.height);
       particles.forEach(p=>{
-        p.x += p.dx;
-        p.y += p.dy;
-        if(p.x<0||p.x>canvas.width) p.dx*=-1;
-        if(p.y<0||p.y>canvas.height) p.dy*=-1;
+        p.x+=p.dx; p.y+=p.dy;
+        if(p.x<0||p.x>canvas.width)p.dx*=-1;
+        if(p.y<0||p.y>canvas.height)p.dy*=-1;
         ctx.beginPath();
         ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-        ctx.fillStyle="rgba(255,0,0,0.4)";
+        ctx.fillStyle="rgba(255,0,0,0.6)";
         ctx.fill();
       });
       requestAnimationFrame(animate);
     }
     animate();
+    window.addEventListener('resize',()=>{canvas.width=window.innerWidth; canvas.height=window.innerHeight;});
 
-    window.addEventListener('resize', ()=>{
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    });
+    // Slider d'images
+    const images = ["voiture1.jpg","voiture2.jpg","voiture3.jpg"];
+    let current=0;
+    const slider=document.getElementById('bg-slider');
+    setInterval(()=>{
+      current=(current+1)%images.length;
+      slider.style.opacity=0;
+      setTimeout(()=>{slider.src=images[current];slider.style.opacity=1;},500);
+    },5000);
   </script>
 
 </body>
