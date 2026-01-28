@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eze - Site perso</title>
+  <title>Eze Auto - Estimation voiture</title>
   <style>
     body {
       margin: 0;
@@ -13,56 +13,87 @@
       text-align: center;
     }
     header {
-      padding: 60px 20px;
+      padding: 50px 20px;
       background: linear-gradient(135deg, #b00000, #000);
     }
-    h1 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
+    h1 { font-size: 2.5em; margin-bottom: 10px; }
+    section { padding: 40px 20px; }
+    input, select {
+      padding: 8px;
+      margin: 8px 0;
+      width: 80%;
+      max-width: 300px;
+      border-radius: 6px;
+      border: 1px solid #b00000;
+      background: #111;
+      color: white;
     }
-    p {
-      font-size: 1.1em;
+    button {
+      padding: 10px 20px;
+      margin-top: 10px;
+      background: #b00000;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover { background: #ff0000; }
+    .result {
+      margin-top: 20px;
+      font-size: 1.2em;
       opacity: 0.9;
     }
-    section {
-      padding: 40px 20px;
-    }
-    .card {
-      background: #111;
-      border: 2px solid #b00000;
-      border-radius: 12px;
-      padding: 25px;
-      max-width: 400px;
-      margin: auto;
-    }
-    footer {
-      padding: 20px;
-      font-size: 0.9em;
-      opacity: 0.6;
-    }
+    footer { padding: 20px; font-size: 0.9em; opacity: 0.6; }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Eze</h1>
-    <p>Classe, drôle… et un peu trop stylé 😎</p>
+    <h1>Eze Auto</h1>
+    <p>Vendez votre voiture et obtenez une estimation rapide 🚗</p>
   </header>
 
   <section>
-    <div class="card">
-      <h2>À propos de moi</h2>
-      <p>
-        Bienvenue sur mon site perso.<br>
-        J’aime les trucs stylés, rire un peu trop fort,  
-        et faire croire que je maîtrise tout 😏
-      </p>
-    </div>
+    <h2>Formulaire de votre voiture</h2>
+    <input type="text" id="marque" placeholder="Marque (ex: Peugeot)">
+    <input type="text" id="modele" placeholder="Modèle (ex: 208)">
+    <input type="number" id="annee" placeholder="Année de la voiture">
+    <input type="number" id="km" placeholder="Kilométrage (km)">
+    <select id="etat">
+      <option value="excellent">Excellent</option>
+      <option value="bon">Bon</option>
+      <option value="moyen">Moyen</option>
+    </select>
+    <br>
+    <button onclick="estimer()">Obtenir estimation</button>
+    <div class="result" id="result"></div>
   </section>
 
   <footer>
-    © 2026 — Eze 🔴⚫
+    © 2026 — Eze Auto 🔴⚫
   </footer>
+
+  <script>
+    function estimer() {
+      const annee = parseInt(document.getElementById('annee').value);
+      const km = parseInt(document.getElementById('km').value);
+      const etat = document.getElementById('etat').value;
+
+      if (!annee || !km) {
+        document.getElementById('result').innerText = "Veuillez remplir tous les champs.";
+        return;
+      }
+
+      // Estimation simple : base 20000€, -1000€ par année, -0.05€/km, + bonus selon état
+      let estimation = 20000 - (2026 - annee) * 1000 - km * 0.05;
+      if (etat === "excellent") estimation += 1000;
+      if (etat === "moyen") estimation -= 1000;
+
+      estimation = Math.max(1000, Math.round(estimation)); // minimum 1000€
+      document.getElementById('result').innerText = `Estimation : ${estimation} €`;
+    }
+  </script>
 
 </body>
 </html>
