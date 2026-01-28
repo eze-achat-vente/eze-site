@@ -21,17 +21,19 @@
 
     section { padding: 50px 20px; text-align: center; }
 
-    form {
+    h2 { font-size: 2em; margin-bottom: 20px; }
+
+    .card {
       background: #111;
       border: 2px solid #b00000;
       border-radius: 12px;
-      padding: 40px;
+      padding: 25px;
       max-width: 500px;
-      margin: auto;
+      margin: 20px auto;
       box-shadow: 0 0 20px rgba(255,0,0,0.3);
     }
 
-    label {
+    form label {
       display: block;
       text-align: left;
       margin-top: 15px;
@@ -39,7 +41,7 @@
       font-size: 1.1em;
     }
 
-    input, select, textarea {
+    form input, form select, form textarea {
       width: 100%;
       padding: 12px;
       margin-top: 5px;
@@ -50,7 +52,7 @@
       font-size: 1em;
     }
 
-    textarea { resize: vertical; }
+    form textarea { resize: vertical; }
 
     button {
       margin-top: 20px;
@@ -81,6 +83,26 @@
       border-top: 1px solid #b00000;
       margin-top: 50px;
     }
+
+    .features, .steps, .testimonials {
+      max-width: 900px;
+      margin: 20px auto;
+      text-align: left;
+    }
+
+    .features .item, .steps .item, .testimonials .item {
+      background: #111;
+      border: 2px solid #b00000;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .features .item h3, .steps .item h3, .testimonials .item h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      color: #ff0000;
+    }
   </style>
 </head>
 <body>
@@ -98,6 +120,9 @@
 
       <label>Email</label>
       <input type="email" id="email" placeholder="Votre email" required>
+
+      <label>Téléphone</label>
+      <input type="text" id="phone" placeholder="Votre numéro" required>
 
       <label>Marque et Modèle</label>
       <input type="text" id="car_model" placeholder="Ex: Peugeot 208" required>
@@ -118,10 +143,53 @@
       <label>Commentaire supplémentaire</label>
       <textarea id="message" rows="4" placeholder="Ex: options, entretien, réparations..."></textarea>
 
-      <button type="button" onclick="estimer()">Obtenir une estimation</button>
-
+      <button type="button" onclick="estimer()">Obtenir estimation</button>
       <div class="result" id="result"></div>
     </form>
+  </section>
+
+  <section class="features">
+    <h2>Pourquoi nous choisir ?</h2>
+    <div class="item">
+      <h3>Estimation rapide</h3>
+      <p>Vous obtenez une estimation de votre voiture en quelques secondes.</p>
+    </div>
+    <div class="item">
+      <h3>Prix juste</h3>
+      <p>Nous calculons un prix réaliste selon l’âge, le kilométrage et l’état de votre véhicule.</p>
+    </div>
+    <div class="item">
+      <h3>Transaction sécurisée</h3>
+      <p>Vous êtes contacté directement pour conclure la vente de manière sûre et rapide.</p>
+    </div>
+  </section>
+
+  <section class="steps">
+    <h2>Comment ça marche ?</h2>
+    <div class="item">
+      <h3>1. Remplissez le formulaire</h3>
+      <p>Donnez toutes les informations sur votre voiture pour obtenir une estimation.</p>
+    </div>
+    <div class="item">
+      <h3>2. Nous vous contactons</h3>
+      <p>Nous vérifions les détails et vous envoyons une estimation précise.</p>
+    </div>
+    <div class="item">
+      <h3>3. Vendez votre voiture</h3>
+      <p>Vous acceptez l’offre et nous organisons la transaction rapidement.</p>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <h2>Témoignages</h2>
+    <div class="item">
+      <h3>Alex</h3>
+      <p>"Vente rapide et très simple ! Je recommande vivement." </p>
+    </div>
+    <div class="item">
+      <h3>Sam</h3>
+      <p>"Prix correct et service top ! Très satisfait." </p>
+    </div>
   </section>
 
   <footer>
