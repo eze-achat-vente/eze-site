@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eze Auto - Vendez votre voiture</title>
+  <title>Eze Auto - Vroum et vendez</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
@@ -13,26 +13,7 @@
       color:white;
       overflow-x:hidden;
       position: relative;
-      background: black;
-    }
-
-    /* Image de fond */
-    #bg-image {
-      position: fixed;
-      top:0;
-      left:0;
-      width:100%;
-      height:100%;
-      object-fit: cover;
-      z-index: -2;
-    }
-
-    /* Overlay sombre pour lisibilité */
-    #overlay {
-      position: fixed;
-      top:0; left:0; right:0; bottom:0;
-      background: rgba(0,0,0,0.6);
-      z-index: -1;
+      background: black; /* fond noir simple */
     }
 
     header {
@@ -47,9 +28,11 @@
     }
 
     header p {
-      font-size:1.3em;
+      font-size:1.5em;
       opacity:0.9;
-      margin-top:5px;
+      margin-top:10px;
+      font-style:italic;
+      color:#ff3333;
     }
 
     section {
@@ -130,13 +113,13 @@
       margin-top:50px;
     }
 
-    .features, .steps, .testimonials {
+    .features, .steps {
       max-width:900px;
       margin:20px auto;
       text-align:left;
     }
 
-    .features .item, .steps .item, .testimonials .item {
+    .features .item, .steps .item {
       background:#111;
       border:2px solid #ff0000;
       border-radius:12px;
@@ -146,12 +129,12 @@
       transition:0.3s;
     }
 
-    .features .item:hover, .steps .item:hover, .testimonials .item:hover {
+    .features .item:hover, .steps .item:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 25px rgba(255,0,0,0.5);
     }
 
-    .features .item h3, .steps .item h3, .testimonials .item h3 {
+    .features .item h3, .steps .item h3 {
       margin-top:0;
       margin-bottom:10px;
       color:#ff0000;
@@ -159,22 +142,16 @@
 
     @media (max-width:600px){
       header h1 { font-size:2em; }
-      header p { font-size:1em; }
+      header p { font-size:1.2em; }
     }
 
   </style>
 </head>
 <body>
 
-  <!-- Image de fond -->
-  <img id="bg-image" src="voiture-en-mouvement.jpg" alt="Voiture en mouvement">
-
-  <!-- Overlay sombre -->
-  <div id="overlay"></div>
-
   <header>
     <h1>Eze Auto</h1>
-    <p>Vendez votre voiture rapidement et obtenez une estimation 🚗</p>
+    <p>Vroum et vendez 🚗</p>
   </header>
 
   <section>
@@ -243,18 +220,6 @@
     <div class="item">
       <h3>3. Vendez votre voiture</h3>
       <p>Vous acceptez l’offre et nous organisons la transaction rapidement.</p>
-    </div>
-  </section>
-
-  <section class="testimonials">
-    <h2>Témoignages</h2>
-    <div class="item">
-      <h3>Alex</h3>
-      <p>"Vente rapide et très simple ! Je recommande vivement."</p>
-    </div>
-    <div class="item">
-      <h3>Sam</h3>
-      <p>"Prix correct et service top ! Très satisfait."</p>
     </div>
   </section>
 
