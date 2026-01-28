@@ -11,11 +11,11 @@
       margin:0;
       font-family: 'Roboto', sans-serif;
       color:white;
-      background: black;
+      background:black;
     }
 
     header {
-      padding:60px 20px;
+      padding:60px 20px 30px;
       text-align:center;
     }
 
@@ -26,14 +26,14 @@
     }
 
     #slogan {
-      font-size:3em;                 /* Très grand pour impact */
-      font-weight:900;               /* Très gras */
-      text-transform: uppercase;
+      font-size:3em;                 
+      font-weight:900;               
+      text-transform:uppercase;
       margin-top:15px;
-      background: linear-gradient(90deg, #ff3333, #ff9900, #ffffff); /* Dégradé premium */
+      background: linear-gradient(90deg, #ff3333, #ff9900, #ffffff);
       -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent; /* Applique le dégradé sur le texte */
-      text-shadow: 0 0 10px rgba(255,153,51,0.5), 0 0 20px rgba(255,51,51,0.4); /* Lueur subtile */
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 15px rgba(255,80,0,0.6);
       animation: pulse 2s infinite;
     }
 
@@ -43,13 +43,15 @@
       100% { transform: scale(1); }
     }
 
-    /* Section formulaire avec dégradé subtil */
-    #form-section {
-      padding:50px 20px;
-      text-align:center;
-      background: linear-gradient(to bottom, #111 0%, #000 100%);
-      border-top: 2px solid #ff0000;
-      border-bottom: 2px solid #ff0000;
+    /* Bandeau confiance */
+    .trust {
+      display:flex;
+      justify-content:center;
+      gap:30px;
+      margin-top:30px;
+      flex-wrap:wrap;
+      font-weight:bold;
+      color:#ff3333;
     }
 
     section {
@@ -57,35 +59,35 @@
       text-align:center;
     }
 
+    #form-section {
+      background: linear-gradient(to bottom, #111, #000);
+      border-top:2px solid red;
+      border-bottom:2px solid red;
+    }
+
     h2 {
       font-size:2em;
-      margin-bottom:20px;
+      margin-bottom:15px;
     }
 
-    .card {
-      background:#111;
-      border:2px solid #ff0000;
-      border-radius:12px;
-      padding:25px;
+    .subtitle {
+      opacity:0.85;
+      margin-bottom:30px;
+    }
+
+    form {
       max-width:500px;
-      margin:20px auto;
-      box-shadow:0 0 15px rgba(255,0,0,0.3);
-      transition:0.3s;
-    }
-
-    .card:hover {
-      box-shadow:0 10px 25px rgba(255,0,0,0.5);
-    }
-
-    form label {
-      display:block;
+      margin:auto;
       text-align:left;
-      margin-top:15px;
-      font-weight:bold;
-      font-size:1.1em;
     }
 
-    form input, form select, form textarea {
+    label {
+      margin-top:15px;
+      display:block;
+      font-weight:bold;
+    }
+
+    input, select, textarea {
       width:100%;
       padding:12px;
       margin-top:5px;
@@ -93,19 +95,17 @@
       border:none;
       background:#222;
       color:white;
-      font-size:1em;
     }
 
-    form textarea { resize:vertical; }
-
     button {
-      margin-top:20px;
-      padding:15px 30px;
-      background: #b00000;
+      width:100%;
+      margin-top:25px;
+      padding:15px;
+      background:#b00000;
       color:white;
       border:none;
       border-radius:8px;
-      font-size:1.1em;
+      font-size:1.2em;
       cursor:pointer;
       transition:0.3s;
     }
@@ -114,142 +114,139 @@
       background:#ff1a1a;
     }
 
-    .result {
-      margin-top:25px;
-      font-size:1.3em;
-      font-weight:bold;
-      opacity:0.9;
-    }
-
-    footer {
-      padding:25px;
-      font-size:0.9em;
+    .small-text {
       text-align:center;
-      opacity:0.6;
-      border-top:1px solid #ff0000;
-      margin-top:50px;
+      margin-top:10px;
+      opacity:0.7;
+      font-size:0.9em;
     }
 
-    .features, .steps {
+    .box {
       max-width:900px;
       margin:20px auto;
       text-align:left;
     }
 
-    .features .item, .steps .item {
+    .item {
       background:#111;
-      border:2px solid #ff0000;
+      border:2px solid red;
       border-radius:12px;
       padding:20px;
       margin-bottom:20px;
       box-shadow:0 0 15px rgba(255,0,0,0.3);
-      transition:0.3s;
     }
 
-    .features .item:hover, .steps .item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(255,0,0,0.5);
-    }
-
-    .features .item h3, .steps .item h3 {
+    .item h3 {
       margin-top:0;
       margin-bottom:10px;
       color:#ff0000;
+    }
+
+    footer {
+      padding:20px;
+      text-align:center;
+      opacity:0.6;
+      border-top:1px solid red;
     }
 
     @media (max-width:600px){
       header h1 { font-size:2em; }
       #slogan { font-size:2em; }
     }
-
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Eze Auto</h1>
-    <p id="slogan">VROUM ET VENDEZ 🚗</p>
-  </header>
+<header>
+  <h1>Eze Auto</h1>
+  <div id="slogan">VROUM ET VENDEZ 🚗</div>
 
-  <!-- Section formulaire avec fond dégradé -->
-  <section id="form-section">
-    <h2>Formulaire de vente</h2>
-    <form id="carForm" action="https://formspree.io/f/mnqwyjdp" method="POST">
-      <label>Nom complet</label>
-      <input type="text" name="name" placeholder="Votre nom complet" required>
+  <div class="trust">
+    <div>✅ Réponse sous 24h</div>
+    <div>🔒 Aucun engagement</div>
+    <div>📍 Service sécurisé</div>
+  </div>
+</header>
 
-      <label>Email</label>
-      <input type="email" name="_replyto" placeholder="Votre email" required>
+<section id="form-section">
+  <h2>Formulaire de vente</h2>
+  <p class="subtitle">
+    Remplissez le formulaire, nous analysons votre véhicule et vous recevez une estimation personnalisée par email.
+  </p>
 
-      <label>Téléphone</label>
-      <input type="text" name="phone" placeholder="Votre numéro" required>
+  <form id="carForm" action="https://formspree.io/f/mnqwyjdp" method="POST">
+    <label>Nom complet</label>
+    <input type="text" name="name" required>
 
-      <label>Marque et Modèle</label>
-      <input type="text" name="car_model" placeholder="Ex: Peugeot 208" required>
+    <label>Email</label>
+    <input type="email" name="_replyto" required>
 
-      <label>Année</label>
-      <input type="number" name="year" id="year" placeholder="Ex: 2020" required>
+    <label>Téléphone</label>
+    <input type="text" name="phone" required>
 
-      <label>Kilométrage</label>
-      <input type="number" name="km" id="km" placeholder="Ex: 15000" required>
+    <label>Marque et modèle</label>
+    <input type="text" name="car_model" required>
 
-      <label>État du véhicule</label>
-      <select name="etat" id="etat">
-        <option value="excellent">Excellent</option>
-        <option value="bon">Bon</option>
-        <option value="moyen">Moyen</option>
-      </select>
+    <label>Année</label>
+    <input type="number" name="year" required>
 
-      <label>Commentaire supplémentaire</label>
-      <textarea name="message" rows="4" placeholder="Ex: options, entretien, réparations..."></textarea>
+    <label>Kilométrage</label>
+    <input type="number" name="km" required>
 
-      <button type="button" onclick="estimer()">Obtenir estimation</button>
-      <div class="result" id="result"></div>
-      <button type="submit" style="margin-top:10px;">Envoyer mes informations</button>
-    </form>
-  </section>
+    <label>État du véhicule</label>
+    <select name="etat">
+      <option>Excellent</option>
+      <option>Bon</option>
+      <option>Moyen</option>
+    </select>
 
-  <section class="features">
-    <h2>Pourquoi nous choisir ?</h2>
-    <div class="item">
-      <h3>Estimation rapide</h3>
-      <p>Nous recevrons vos informations et vous enverrons une estimation personnalisée.</p>
-    </div>
-    <div class="item">
-      <h3>Prix juste</h3>
-      <p>Vous recevez une estimation réaliste et adaptée à votre voiture.</p>
-    </div>
-    <div class="item">
-      <h3>Transaction sécurisée</h3>
-      <p>Nous vous contactons pour conclure la vente de manière sûre et rapide.</p>
-    </div>
-  </section>
+    <label>Commentaire</label>
+    <textarea name="message"></textarea>
 
-  <section class="steps">
-    <h2>Comment ça marche ?</h2>
-    <div class="item">
-      <h3>1. Remplissez le formulaire</h3>
-      <p>Donnez toutes les informations sur votre voiture pour obtenir une estimation.</p>
-    </div>
-    <div class="item">
-      <h3>2. Nous vous contactons</h3>
-      <p>Nous vérifions les détails et vous envoyons une estimation précise.</p>
-    </div>
-    <div class="item">
-      <h3>3. Vendez votre voiture</h3>
-      <p>Vous acceptez l’offre et nous organisons la transaction rapidement.</p>
-    </div>
-  </section>
+    <button type="submit">Recevoir mon estimation</button>
+    <div class="small-text">Aucune obligation de vente</div>
+  </form>
+</section>
 
-  <footer>
-    © 2026 — Eze Auto 🔴⚫
-  </footer>
+<section class="box">
+  <h2>Pourquoi nous choisir ?</h2>
+  <div class="item">
+    <h3>Estimation rapide</h3>
+    <p>Nous recevrons vos informations et vous enverrons une estimation personnalisée.</p>
+  </div>
+  <div class="item">
+    <h3>Prix juste</h3>
+    <p>Vous recevez une estimation réaliste et adaptée à votre voiture.</p>
+  </div>
+  <div class="item">
+    <h3>Transaction sécurisée</h3>
+    <p>Nous vous contactons pour conclure la vente de manière sûre et rapide.</p>
+  </div>
+</section>
 
-  <script>
-    function estimer() {
-      document.getElementById('result').innerText = "Merci ! Nous allons vous envoyer votre estimation rapidement.";
-    }
-  </script>
+<section class="box">
+  <h2>Pour quels véhicules ?</h2>
+  <div class="item">🚗 Citadines et berlines</div>
+  <div class="item">🚙 SUV et familiales</div>
+  <div class="item">🛠 Véhicules anciens ou kilométrés</div>
+</section>
+
+<section class="box">
+  <h2>Questions fréquentes</h2>
+  <div class="item"><strong>Est-ce gratuit ?</strong><br>Oui, totalement.</div>
+  <div class="item"><strong>Suis-je obligé de vendre ?</strong><br>Non, aucune obligation.</div>
+  <div class="item"><strong>Quand vais-je recevoir l’estimation ?</strong><br>Sous 24h maximum.</div>
+</section>
+
+<footer>
+  © 2026 — Eze Auto 🔴⚫
+</footer>
+
+<script>
+  function estimer() {
+    document.getElementById('result').innerText = "Merci ! Nous allons vous envoyer votre estimation rapidement.";
+  }
+</script>
 
 </body>
 </html>
