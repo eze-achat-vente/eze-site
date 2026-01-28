@@ -3,71 +3,125 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eze Auto - Estimation voiture</title>
+  <title>Eze Auto - Vendez votre voiture</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background: #0b0b0b;
       color: white;
-      text-align: center;
     }
     header {
-      padding: 50px 20px;
+      padding: 60px 20px;
       background: linear-gradient(135deg, #b00000, #000);
+      text-align: center;
     }
-    h1 { font-size: 2.5em; margin-bottom: 10px; }
-    section { padding: 40px 20px; }
-    input, select {
-      padding: 8px;
-      margin: 8px 0;
-      width: 80%;
-      max-width: 300px;
-      border-radius: 6px;
-      border: 1px solid #b00000;
+    header h1 { font-size: 3em; margin-bottom: 10px; }
+    header p { font-size: 1.3em; opacity: 0.9; }
+
+    section { padding: 50px 20px; text-align: center; }
+
+    form {
       background: #111;
-      color: white;
+      border: 2px solid #b00000;
+      border-radius: 12px;
+      padding: 40px;
+      max-width: 500px;
+      margin: auto;
+      box-shadow: 0 0 20px rgba(255,0,0,0.3);
     }
+
+    label {
+      display: block;
+      text-align: left;
+      margin-top: 15px;
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 5px;
+      border-radius: 6px;
+      border: none;
+      background: #222;
+      color: white;
+      font-size: 1em;
+    }
+
+    textarea { resize: vertical; }
+
     button {
-      padding: 10px 20px;
-      margin-top: 10px;
+      margin-top: 20px;
+      padding: 15px 30px;
       background: #b00000;
       color: white;
       border: none;
-      border-radius: 6px;
+      border-radius: 8px;
+      font-size: 1.1em;
       cursor: pointer;
       transition: 0.3s;
     }
+
     button:hover { background: #ff0000; }
+
     .result {
-      margin-top: 20px;
-      font-size: 1.2em;
+      margin-top: 25px;
+      font-size: 1.3em;
+      font-weight: bold;
       opacity: 0.9;
     }
-    footer { padding: 20px; font-size: 0.9em; opacity: 0.6; }
+
+    footer {
+      padding: 25px;
+      font-size: 0.9em;
+      text-align: center;
+      opacity: 0.6;
+      border-top: 1px solid #b00000;
+      margin-top: 50px;
+    }
   </style>
 </head>
 <body>
 
   <header>
     <h1>Eze Auto</h1>
-    <p>Vendez votre voiture et obtenez une estimation rapide 🚗</p>
+    <p>Vendez votre voiture rapidement et obtenez une estimation 🚗</p>
   </header>
 
   <section>
-    <h2>Formulaire de votre voiture</h2>
-    <input type="text" id="marque" placeholder="Marque (ex: Peugeot)">
-    <input type="text" id="modele" placeholder="Modèle (ex: 208)">
-    <input type="number" id="annee" placeholder="Année de la voiture">
-    <input type="number" id="km" placeholder="Kilométrage (km)">
-    <select id="etat">
-      <option value="excellent">Excellent</option>
-      <option value="bon">Bon</option>
-      <option value="moyen">Moyen</option>
-    </select>
-    <br>
-    <button onclick="estimer()">Obtenir estimation</button>
-    <div class="result" id="result"></div>
+    <h2>Formulaire de vente</h2>
+    <form id="carForm">
+      <label>Nom complet</label>
+      <input type="text" id="name" placeholder="Votre nom complet" required>
+
+      <label>Email</label>
+      <input type="email" id="email" placeholder="Votre email" required>
+
+      <label>Marque et Modèle</label>
+      <input type="text" id="car_model" placeholder="Ex: Peugeot 208" required>
+
+      <label>Année</label>
+      <input type="number" id="year" placeholder="Ex: 2020" required>
+
+      <label>Kilométrage</label>
+      <input type="number" id="km" placeholder="Ex: 15000" required>
+
+      <label>État du véhicule</label>
+      <select id="etat">
+        <option value="excellent">Excellent</option>
+        <option value="bon">Bon</option>
+        <option value="moyen">Moyen</option>
+      </select>
+
+      <label>Commentaire supplémentaire</label>
+      <textarea id="message" rows="4" placeholder="Ex: options, entretien, réparations..."></textarea>
+
+      <button type="button" onclick="estimer()">Obtenir une estimation</button>
+
+      <div class="result" id="result"></div>
+    </form>
   </section>
 
   <footer>
@@ -76,7 +130,7 @@
 
   <script>
     function estimer() {
-      const annee = parseInt(document.getElementById('annee').value);
+      const annee = parseInt(document.getElementById('year').value);
       const km = parseInt(document.getElementById('km').value);
       const etat = document.getElementById('etat').value;
 
