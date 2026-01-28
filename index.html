@@ -19,40 +19,22 @@ body {
 header {
   padding:60px 20px 30px;
   text-align:center;
-  position:relative;
-  overflow:hidden;
-}
-
-/* Dégradé léger derrière le slogan */
-header::before {
-  content:"";
-  position:absolute;
-  top:0; left:-50%;
-  width:200%; height:100%;
-  background: linear-gradient(120deg, rgba(255,0,0,0.05), rgba(255,255,255,0.05), rgba(255,165,0,0.05));
-  animation: slideGradient 5s linear infinite;
-  z-index:0; /* derrière le texte */
+  background:black; /* fond noir simple */
 }
 
 header h1 {
   font-size:3em;
   margin:0;
   font-weight:700;
-  position:relative;
-  z-index:2;
 }
 
 #slogan {
-  font-size:3em;                 
-  font-weight:900;               
+  font-size:3em;
+  font-weight:900;
   text-transform:uppercase;
   margin-top:15px;
-  position:relative;
-  z-index:2; /* au-dessus du dégradé */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background: linear-gradient(90deg, #ff3333, #ff9900, #ffffff);
-  text-shadow: 0 0 10px rgba(0,0,0,0.7);
+  color:#ff3333; /* texte visible */
+  text-shadow: 0 0 15px #ff9900; /* léger glow pour impact */
   animation: pulse 2s infinite;
 }
 
@@ -60,11 +42,6 @@ header h1 {
   0% { transform: scale(1); }
   50% { transform: scale(1.05); }
   100% { transform: scale(1); }
-}
-
-@keyframes slideGradient {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
 }
 
 /* Bandeau confiance */
@@ -76,19 +53,6 @@ header h1 {
   flex-wrap:wrap;
   font-weight:bold;
   color:#ff3333;
-}
-
-.trust div {
-  display:flex;
-  align-items:center;
-  gap:5px;
-  font-size:1em;
-  animation: trustPulse 2s infinite alternate;
-}
-
-@keyframes trustPulse {
-  0% { transform: scale(1); }
-  100% { transform: scale(1.05); }
 }
 
 /* Sections */
