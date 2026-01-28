@@ -1,222 +1,232 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eze Auto - VROUM ET VENDEZ</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eze Auto - VROUM ET VENDEZ</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-    body {
-      margin:0;
-      font-family: 'Roboto', sans-serif;
-      color:white;
-      background:black;
-      overflow-x:hidden;
-    }
+body {
+  margin:0;
+  font-family: 'Roboto', sans-serif;
+  color:white;
+  background:black;
+  overflow-x:hidden;
+}
 
-    header {
-      padding:60px 20px 30px;
-      text-align:center;
-      position:relative;
-      overflow:hidden;
-    }
+/* Header et slogan */
+header {
+  padding:60px 20px 30px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
 
-    header h1 {
-      font-size:3em;
-      margin:0;
-      font-weight:700;
-      position:relative;
-      z-index:2;
-    }
+/* Dégradé léger derrière le slogan */
+header::before {
+  content:"";
+  position:absolute;
+  top:0; left:-50%;
+  width:200%; height:100%;
+  background: linear-gradient(120deg, rgba(255,0,0,0.05), rgba(255,255,255,0.05), rgba(255,165,0,0.05));
+  animation: slideGradient 5s linear infinite;
+  z-index:0; /* derrière le texte */
+}
 
-    #slogan {
-      font-size:3em;                 
-      font-weight:900;               
-      text-transform:uppercase;
-      margin-top:15px;
-      position:relative;
-      z-index:2;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background: linear-gradient(90deg, #ff3333, #ff9900, #ffffff);
-      text-shadow: 0 0 15px rgba(255,80,0,0.6);
-      animation: pulse 2s infinite;
-    }
+header h1 {
+  font-size:3em;
+  margin:0;
+  font-weight:700;
+  position:relative;
+  z-index:2;
+}
 
-    /* Dégradé animé derrière le slogan */
-    header::before {
-      content:"";
-      position:absolute;
-      top:0; left:-50%;
-      width:200%; height:100%;
-      background: linear-gradient(120deg, rgba(255,0,0,0.2), rgba(255,255,255,0.15), rgba(255,165,0,0.2));
-      animation: slideGradient 5s linear infinite;
-      z-index:1;
-    }
+#slogan {
+  font-size:3em;                 
+  font-weight:900;               
+  text-transform:uppercase;
+  margin-top:15px;
+  position:relative;
+  z-index:2; /* au-dessus du dégradé */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background: linear-gradient(90deg, #ff3333, #ff9900, #ffffff);
+  text-shadow: 0 0 10px rgba(0,0,0,0.7);
+  animation: pulse 2s infinite;
+}
 
-    @keyframes slideGradient {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
 
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
+@keyframes slideGradient {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
 
-    .trust {
-      display:flex;
-      justify-content:center;
-      gap:30px;
-      margin-top:30px;
-      flex-wrap:wrap;
-      font-weight:bold;
-      color:#ff3333;
-    }
+/* Bandeau confiance */
+.trust {
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  margin-top:30px;
+  flex-wrap:wrap;
+  font-weight:bold;
+  color:#ff3333;
+}
 
-    .trust div {
-      display:flex;
-      align-items:center;
-      gap:5px;
-      font-size:1em;
-      animation: trustPulse 2s infinite alternate;
-    }
+.trust div {
+  display:flex;
+  align-items:center;
+  gap:5px;
+  font-size:1em;
+  animation: trustPulse 2s infinite alternate;
+}
 
-    @keyframes trustPulse {
-      0% { transform: scale(1); }
-      100% { transform: scale(1.05); }
-    }
+@keyframes trustPulse {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.05); }
+}
 
-    section {
-      padding:50px 20px;
-      text-align:center;
-    }
+/* Sections */
+section {
+  padding:50px 20px;
+  text-align:center;
+}
 
-    #form-section {
-      background: linear-gradient(to bottom, #111, #000);
-      border-top:2px solid red;
-      border-bottom:2px solid red;
-    }
+#form-section {
+  background: linear-gradient(to bottom, #111, #000);
+  border-top:2px solid red;
+  border-bottom:2px solid red;
+}
 
-    h2 {
-      font-size:2em;
-      margin-bottom:15px;
-    }
+h2 {
+  font-size:2em;
+  margin-bottom:15px;
+}
 
-    .subtitle {
-      opacity:0.85;
-      margin-bottom:15px;
-    }
+.subtitle {
+  opacity:0.85;
+  margin-bottom:15px;
+}
 
-    .micro-engagement {
-      opacity:0.85;
-      margin-bottom:25px;
-      font-style:italic;
-    }
+.micro-engagement {
+  opacity:0.85;
+  margin-bottom:25px;
+  font-style:italic;
+}
 
-    form {
-      max-width:500px;
-      margin:auto;
-      text-align:left;
-    }
+form {
+  max-width:500px;
+  margin:auto;
+  text-align:left;
+}
 
-    label {
-      margin-top:15px;
-      display:block;
-      font-weight:bold;
-    }
+label {
+  margin-top:15px;
+  display:block;
+  font-weight:bold;
+}
 
-    input, select, textarea {
-      width:100%;
-      padding:12px;
-      margin-top:5px;
-      border-radius:6px;
-      border:none;
-      background:#222;
-      color:white;
-    }
+input, select, textarea {
+  width:100%;
+  padding:12px;
+  margin-top:5px;
+  border-radius:6px;
+  border:none;
+  background:#222;
+  color:white;
+}
 
-    button {
-      width:100%;
-      margin-top:25px;
-      padding:15px;
-      background:#b00000;
-      color:white;
-      border:none;
-      border-radius:8px;
-      font-size:1.2em;
-      cursor:pointer;
-      transition:0.3s, box-shadow 0.3s;
-    }
+button {
+  width:100%;
+  margin-top:25px;
+  padding:15px;
+  background:#b00000;
+  color:white;
+  border:none;
+  border-radius:8px;
+  font-size:1.2em;
+  cursor:pointer;
+  transition:0.3s, box-shadow 0.3s;
+}
 
-    button:hover {
-      background:#ff4444;
-      box-shadow:0 0 15px #ff4444;
-    }
+button:hover {
+  background:#ff4444;
+  box-shadow:0 0 15px #ff4444;
+}
 
-    .small-text {
-      text-align:center;
-      margin-top:10px;
-      opacity:0.7;
-      font-size:0.9em;
-    }
+.small-text {
+  text-align:center;
+  margin-top:10px;
+  opacity:0.7;
+  font-size:0.9em;
+}
 
-    .box {
-      max-width:900px;
-      margin:20px auto;
-      text-align:left;
-      opacity:0;
-      transform: translateY(20px);
-      transition: 0.8s;
-    }
+.box {
+  max-width:900px;
+  margin:20px auto;
+  text-align:left;
+  opacity:0;
+  transform: translateY(20px);
+  transition: 0.8s;
+}
 
-    .box.visible {
-      opacity:1;
-      transform: translateY(0);
-    }
+.box.visible {
+  opacity:1;
+  transform: translateY(0);
+}
 
-    .item {
-      background:#111;
-      border:2px solid red;
-      border-radius:12px;
-      padding:20px;
-      margin-bottom:20px;
-      box-shadow:0 0 15px rgba(255,0,0,0.3);
-      transition:0.3s;
-    }
+.item {
+  background:#111;
+  border:2px solid red;
+  border-radius:12px;
+  padding:20px;
+  margin-bottom:20px;
+  box-shadow:0 0 15px rgba(255,0,0,0.3);
+  transition:0.3s;
+}
 
-    .item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(255,0,0,0.5);
-    }
+.item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(255,0,0,0.5);
+}
 
-    .item h3 {
-      margin-top:0;
-      margin-bottom:10px;
-      color:#ff0000;
-    }
+.item h3 {
+  margin-top:0;
+  margin-bottom:10px;
+  color:#ff0000;
+}
 
-    .testimonial {
-      font-style:italic;
-      opacity:0.9;
-      margin-top:10px;
-    }
+.testimonial {
+  font-style:italic;
+  opacity:0.9;
+  margin-top:10px;
+}
 
-    footer {
-      padding:20px;
-      text-align:center;
-      opacity:0.6;
-      border-top:1px solid red;
-    }
+#counter {
+  text-align:center;
+  font-weight:bold;
+  font-size:1.2em;
+  margin-top:20px;
+  color:#ff3333;
+}
 
-    @media (max-width:600px){
-      header h1 { font-size:2em; }
-      #slogan { font-size:2em; }
-    }
+footer {
+  padding:20px;
+  text-align:center;
+  opacity:0.6;
+  border-top:1px solid red;
+}
 
-  </style>
+@media (max-width:600px){
+  header h1 { font-size:2em; }
+  #slogan { font-size:2em; }
+}
+</style>
 </head>
 <body>
 
@@ -272,6 +282,8 @@
     <button type="submit">Recevoir mon estimation</button>
     <div class="small-text">Aucune obligation de vente</div>
   </form>
+
+  <div id="counter">🚗 Plus de 120 voitures estimées cette semaine !</div>
 </section>
 
 <section class="box">
@@ -317,16 +329,16 @@
 </footer>
 
 <script>
-  // Animation au scroll
-  const boxes = document.querySelectorAll('.box');
-  window.addEventListener('scroll', () => {
-    boxes.forEach(box => {
-      const boxTop = box.getBoundingClientRect().top;
-      if(boxTop < window.innerHeight - 100) {
-        box.classList.add('visible');
-      }
-    });
+// Animation au scroll
+const boxes = document.querySelectorAll('.box');
+window.addEventListener('scroll', () => {
+  boxes.forEach(box => {
+    const boxTop = box.getBoundingClientRect().top;
+    if(boxTop < window.innerHeight - 100) {
+      box.classList.add('visible');
+    }
   });
+});
 </script>
 
 </body>
