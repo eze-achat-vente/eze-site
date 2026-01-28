@@ -12,17 +12,22 @@
       font-family: 'Roboto', sans-serif;
       color:white;
       background:black;
+      overflow-x:hidden;
     }
 
     header {
       padding:60px 20px 30px;
       text-align:center;
+      position:relative;
+      overflow:hidden;
     }
 
     header h1 {
       font-size:3em;
       margin:0;
       font-weight:700;
+      position:relative;
+      z-index:2;
     }
 
     #slogan {
@@ -30,11 +35,29 @@
       font-weight:900;               
       text-transform:uppercase;
       margin-top:15px;
-      background: linear-gradient(90deg, #ff3333, #ff9900, #ffffff);
+      position:relative;
+      z-index:2;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      background: linear-gradient(90deg, #ff3333, #ff9900, #ffffff);
       text-shadow: 0 0 15px rgba(255,80,0,0.6);
       animation: pulse 2s infinite;
+    }
+
+    /* Dégradé animé derrière le slogan */
+    header::before {
+      content:"";
+      position:absolute;
+      top:0; left:-50%;
+      width:200%; height:100%;
+      background: linear-gradient(120deg, rgba(255,0,0,0.2), rgba(255,255,255,0.15), rgba(255,165,0,0.2));
+      animation: slideGradient 5s linear infinite;
+      z-index:1;
+    }
+
+    @keyframes slideGradient {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
 
     @keyframes pulse {
@@ -43,7 +66,6 @@
       100% { transform: scale(1); }
     }
 
-    /* Bandeau confiance */
     .trust {
       display:flex;
       justify-content:center;
@@ -52,6 +74,19 @@
       flex-wrap:wrap;
       font-weight:bold;
       color:#ff3333;
+    }
+
+    .trust div {
+      display:flex;
+      align-items:center;
+      gap:5px;
+      font-size:1em;
+      animation: trustPulse 2s infinite alternate;
+    }
+
+    @keyframes trustPulse {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.05); }
     }
 
     section {
@@ -72,7 +107,13 @@
 
     .subtitle {
       opacity:0.85;
-      margin-bottom:30px;
+      margin-bottom:15px;
+    }
+
+    .micro-engagement {
+      opacity:0.85;
+      margin-bottom:25px;
+      font-style:italic;
     }
 
     form {
@@ -107,11 +148,12 @@
       border-radius:8px;
       font-size:1.2em;
       cursor:pointer;
-      transition:0.3s;
+      transition:0.3s, box-shadow 0.3s;
     }
 
     button:hover {
-      background:#ff1a1a;
+      background:#ff4444;
+      box-shadow:0 0 15px #ff4444;
     }
 
     .small-text {
@@ -125,6 +167,14 @@
       max-width:900px;
       margin:20px auto;
       text-align:left;
+      opacity:0;
+      transform: translateY(20px);
+      transition: 0.8s;
+    }
+
+    .box.visible {
+      opacity:1;
+      transform: translateY(0);
     }
 
     .item {
@@ -134,12 +184,24 @@
       padding:20px;
       margin-bottom:20px;
       box-shadow:0 0 15px rgba(255,0,0,0.3);
+      transition:0.3s;
+    }
+
+    .item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(255,0,0,0.5);
     }
 
     .item h3 {
       margin-top:0;
       margin-bottom:10px;
       color:#ff0000;
+    }
+
+    .testimonial {
+      font-style:italic;
+      opacity:0.9;
+      margin-top:10px;
     }
 
     footer {
@@ -153,6 +215,7 @@
       header h1 { font-size:2em; }
       #slogan { font-size:2em; }
     }
+
   </style>
 </head>
 <body>
@@ -172,6 +235,9 @@
   <h2>Formulaire de vente</h2>
   <p class="subtitle">
     Remplissez le formulaire, nous analysons votre véhicule et vous recevez une estimation personnalisée par email.
+  </p>
+  <p class="micro-engagement">
+    En 60 secondes, obtenez une estimation précise de votre voiture.
   </p>
 
   <form id="carForm" action="https://formspree.io/f/mnqwyjdp" method="POST">
@@ -238,14 +304,29 @@
   <div class="item"><strong>Quand vais-je recevoir l’estimation ?</strong><br>Sous 24h maximum.</div>
 </section>
 
+<section class="box">
+  <h2>Témoignage</h2>
+  <div class="item">
+    <strong>Alex</strong>
+    <p class="testimonial">"J’ai reçu mon estimation en moins de 24h, super simple et rapide !"</p>
+  </div>
+</section>
+
 <footer>
   © 2026 — Eze Auto 🔴⚫
 </footer>
 
 <script>
-  function estimer() {
-    document.getElementById('result').innerText = "Merci ! Nous allons vous envoyer votre estimation rapidement.";
-  }
+  // Animation au scroll
+  const boxes = document.querySelectorAll('.box');
+  window.addEventListener('scroll', () => {
+    boxes.forEach(box => {
+      const boxTop = box.getBoundingClientRect().top;
+      if(boxTop < window.innerHeight - 100) {
+        box.classList.add('visible');
+      }
+    });
+  });
 </script>
 
 </body>
