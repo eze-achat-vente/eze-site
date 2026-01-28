@@ -1,52 +1,68 @@
-DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eze Achat-Vente</title>
+  <title>Eze - Site perso</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f0f0f0; color: #333; }
-    header { background: #0077cc; color: white; padding: 20px; text-align: center; }
-    nav a { color: white; text-decoration: none; margin: 0 10px; font-weight: bold; }
-    nav a:hover { text-decoration: underline; }
-    main { padding: 20px; }
-    .products { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin-top: 20px; }
-    .product { background: white; padding: 15px; width: 150px; text-align: center; border: 1px solid #ccc; box-shadow: 2px 2px 5px rgba(0,0,0,0.1); transition: transform 0.2s; }
-    .product:hover { transform: scale(1.05); }
-    form { margin-top: 30px; }
-    form input, form textarea { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; box-sizing: border-box; }
-    form button { padding: 10px 20px; background: #0077cc; color: white; border: none; cursor: pointer; }
-    form button:hover { background: #005fa3; }
-    footer { background: #333; color: white; text-align: center; padding: 15px 0; margin-top: 30px; }
-    @media (max-width: 500px) { .products { flex-direction: column; align-items: center; } .product { width: 80%; } nav a { display: block; margin: 5px 0; } }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b0b0b;
+      color: white;
+      text-align: center;
+    }
+    header {
+      padding: 60px 20px;
+      background: linear-gradient(135deg, #b00000, #000);
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 1.1em;
+      opacity: 0.9;
+    }
+    section {
+      padding: 40px 20px;
+    }
+    .card {
+      background: #111;
+      border: 2px solid #b00000;
+      border-radius: 12px;
+      padding: 25px;
+      max-width: 400px;
+      margin: auto;
+    }
+    footer {
+      padding: 20px;
+      font-size: 0.9em;
+      opacity: 0.6;
+    }
   </style>
 </head>
 <body>
-<header>
-  <h1>Eze Achat-Vente</h1>
-  <nav>
-    <a href="#">Accueil</a>
-    <a href="#">Produits</a>
-    <a href="#">Contact</a>
-  </nav>
-</header>
-<main>
-  <h2>Bienvenue sur notre site !</h2>
-  <p>Découvrez nos meilleurs produits à prix compétitifs.</p>
-  <h3>Nos produits</h3>
-  <div class="products">
-    <div class="product"><h4>Produit 1</h4><p>Description courte</p><p><strong>€10</strong></p></div>
-    <div class="product"><h4>Produit 2</h4><p>Description courte</p><p><strong>€15</strong></p></div>
-    <div class="product"><h4>Produit 3</h4><p>Description courte</p><p><strong>€20</strong></p></div>
-  </div>
-  <h3>Contactez-nous</h3>
-  <form>
-    <input type="text" placeholder="Votre nom" required>
-    <input type="email" placeholder="Votre email" required>
-    <textarea placeholder="Votre message" rows="4" required></textarea>
-    <button type="submit">Envoyer</button>
-  </form>
-</main>
-<footer>&copy; 2026 Eze Achat-Vente</footer>
+
+  <header>
+    <h1>Eze</h1>
+    <p>Classe, drôle… et un peu trop stylé 😎</p>
+  </header>
+
+  <section>
+    <div class="card">
+      <h2>À propos de moi</h2>
+      <p>
+        Bienvenue sur mon site perso.<br>
+        J’aime les trucs stylés, rire un peu trop fort,  
+        et faire croire que je maîtrise tout 😏
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 — Eze 🔴⚫
+  </footer>
+
 </body>
 </html>
