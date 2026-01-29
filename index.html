@@ -7,6 +7,7 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+/* Général */
 body {
   margin:0;
   font-family: 'Roboto', sans-serif;
@@ -15,6 +16,7 @@ body {
   overflow-x:hidden;
 }
 
+/* Header */
 header {
   padding:60px 20px 30px;
   text-align:center;
@@ -53,6 +55,7 @@ header h1 {
   color:#FFD700;
 }
 
+/* Sections */
 section {
   padding:50px 20px;
   text-align:center;
@@ -79,8 +82,10 @@ h2 {
   opacity:0.85;
   margin-bottom:25px;
   font-style:italic;
+  color:white;
 }
 
+/* Formulaire */
 form {
   max-width:500px;
   margin:auto;
@@ -91,7 +96,7 @@ label {
   margin-top:15px;
   display:block;
   font-weight:bold;
-  color:#FFD700;
+  color:#FFD700; /* Or */
 }
 
 input, select, textarea {
@@ -108,7 +113,7 @@ button {
   width:100%;
   margin-top:25px;
   padding:15px;
-  background:#FFD700;
+  background:#FFD700; /* Or */
   color:black;
   border:none;
   border-radius:8px;
@@ -129,6 +134,7 @@ button:hover {
   font-size:0.9em;
 }
 
+/* Boxes */
 .box {
   max-width:900px;
   margin:20px auto;
@@ -145,7 +151,7 @@ button:hover {
 
 .item {
   background:#111;
-  border:2px solid #FFD700;
+  border:2px solid #FFD700; /* Or */
   border-radius:12px;
   padding:20px;
   margin-bottom:20px;
@@ -161,13 +167,13 @@ button:hover {
 .item h3 {
   margin-top:0;
   margin-bottom:10px;
-  color:#FFD700;
+  color:#FFD700; /* Or */
 }
 
-.testimonial {
-  font-style:italic;
+.item p, .testimonial {
+  color:white; /* Texte blanc reste blanc */
   opacity:0.9;
-  margin-top:10px;
+  font-style:italic;
 }
 
 #counter {
@@ -175,14 +181,16 @@ button:hover {
   font-weight:bold;
   font-size:1.2em;
   margin-top:20px;
-  color:#FFD700;
+  color:#FFD700; /* Or */
 }
 
+/* Footer */
 footer {
   padding:20px;
   text-align:center;
   opacity:0.6;
   border-top:1px solid #FFD700;
+  color:white;
 }
 
 @media (max-width:600px){
@@ -196,7 +204,6 @@ footer {
 <header>
   <h1>Eze Auto</h1>
   <div id="slogan">VROUM ET VENDEZ 🚗</div>
-
   <div class="trust">
     <div>✅ Réponse sous 24h</div>
     <div>🔒 Aucun engagement</div>
@@ -206,8 +213,91 @@ footer {
 
 <section id="form-section">
   <h2>Formulaire de vente</h2>
-  <p class="subtitle">
-    Remplissez le formulaire pour recevoir votre estimation personnalisée.
-  </p>
-  <p class="micro-engagement">
-    En
+  <p class="subtitle">Remplissez le formulaire pour recevoir votre estimation personnalisée.</p>
+  <p class="micro-engagement">En 60 secondes, obtenez une estimation précise de votre voiture.</p>
+
+  <form id="carForm" action="https://formspree.io/f/mnqwyjdp" method="POST">
+    <label>Nom complet</label>
+    <input type="text" name="name" placeholder="Votre nom complet" required>
+
+    <label>Email</label>
+    <input type="email" name="_replyto" placeholder="Votre email" required>
+
+    <label>Téléphone</label>
+    <input type="text" name="phone" placeholder="Votre numéro" required>
+
+    <label>Marque et Modèle</label>
+    <input type="text" name="car_model" placeholder="Ex: Peugeot 208" required>
+
+    <label>Année</label>
+    <input type="number" name="year" placeholder="Ex: 2020" required>
+
+    <label>Kilométrage</label>
+    <input type="number" name="km" placeholder="Ex: 15000" required>
+
+    <label>État du véhicule</label>
+    <select name="etat" required>
+      <option value="excellent">Excellent</option>
+      <option value="bon">Bon</option>
+      <option value="moyen">Moyen</option>
+    </select>
+
+    <label>Commentaire supplémentaire</label>
+    <textarea name="message" rows="4" placeholder="Ex: options, entretien, réparations..."></textarea>
+
+    <button type="submit">Recevoir mon estimation</button>
+    <div class="small-text">Aucune obligation de vente</div>
+  </form>
+
+  <div id="counter">🚗 Plus de 120 voitures estimées cette semaine !</div>
+</section>
+
+<section class="box">
+  <h2>Pourquoi nous choisir ?</h2>
+  <div class="item">
+    <h3>Estimation rapide</h3>
+    <p>Nous analysons vos informations et vous envoyons une estimation personnalisée.</p>
+  </div>
+  <div class="item">
+    <h3>Prix juste</h3>
+    <p>Recevez un prix réaliste selon l’âge, le kilométrage et l’état de votre véhicule.</p>
+  </div>
+  <div class="item">
+    <h3>Transaction sécurisée</h3>
+    <p>Nous organisons la vente de manière sûre et rapide.</p>
+  </div>
+</section>
+
+<section class="box">
+  <h2>Pour quels véhicules ?</h2>
+  <div class="item">🚗 Citadines et berlines</div>
+  <div class="item">🚙 SUV et familiales</div>
+  <div class="item">🛠 Véhicules anciens ou kilométrés</div>
+</section>
+
+<section class="box">
+  <h2>Questions fréquentes</h2>
+  <div class="item"><strong>Est-ce gratuit ?</strong><br>Oui, totalement.</div>
+  <div class="item"><strong>Suis-je obligé de vendre ?</strong><br>Non, aucune obligation.</div>
+  <div class="item"><strong>Quand vais-je recevoir l’estimation ?</strong><br>Sous 24h maximum.</div>
+</section>
+
+<footer>
+  © 2026 — Eze Auto ⚫🟡
+</footer>
+
+<script>
+// Animation au scroll
+const boxes = document.querySelectorAll('.box');
+window.addEventListener('scroll', () => {
+  boxes.forEach(box => {
+    const boxTop = box.getBoundingClientRect().top;
+    if(boxTop < window.innerHeight - 100) {
+      box.classList.add('visible');
+    }
+  });
+});
+</script>
+
+</body>
+</html>
