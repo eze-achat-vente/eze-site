@@ -184,6 +184,13 @@ button:hover {
   color:#FFD700; /* Or */
 }
 
+/* QR Code */
+#qr-section img {
+  width:200px;
+  height:200px;
+  margin-top:20px;
+}
+
 /* Footer */
 footer {
   padding:20px;
@@ -216,7 +223,6 @@ footer {
   <p class="subtitle">Remplissez le formulaire pour recevoir votre estimation personnalisée.</p>
   <p class="micro-engagement">En 60 secondes, obtenez une estimation précise de votre voiture.</p>
 
-  <!-- FORMULAIRE AVEC TON LIEN FORMSPREE ACTIF -->
   <form id="carForm" action="https://formspree.io/f/mvzrgnql" method="POST">
     <label>Nom complet</label>
     <input type="text" name="name" placeholder="Votre nom complet" required>
@@ -281,6 +287,12 @@ footer {
   <div class="item"><strong>Est-ce gratuit ?</strong><br>Oui, totalement.</div>
   <div class="item"><strong>Suis-je obligé de vendre ?</strong><br>Non, aucune obligation.</div>
   <div class="item"><strong>Quand vais-je recevoir l’estimation ?</strong><br>Sous 24h maximum.</div>
+</section>
+
+<!-- SECTION QR CODE -->
+<section id="qr-section">
+  <h2 style="color:#FFD700;">Scannez pour accéder au formulaire</h2>
+  <img src="qr-code.png" alt="QR Code vers Eze Auto">
 </section>
 
 <footer>
